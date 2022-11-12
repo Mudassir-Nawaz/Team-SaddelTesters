@@ -1,0 +1,9 @@
+contactformaction: 'post-action'
+
+address:
+- line: 'Im Dorf 8, 72218 Wildberg, Germany'
+# - line: 'Nashville, TN 00000-0000'
+
+phone: '0049 176 640 255 84'
+
+email: 'info@satteltester.de'

@@ -1,0 +1,43 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Team-Satteltester'
+theme = 'hugo-theme-massively'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
+[params]
+  # set below parameter to define a favicon
+  # favicon = "images/favicon.png"
+  # set to change date format
+  # dateFormat = "2.1.2006"
+  backgroundPath = "/images/funktio015.jpg"
+
+# Below parameters can be set to override default post settings
+# [params.posts]
+#     folderName = "post"
+#     pageSize = "6"
+#     featuredPost = true
+#     paginationPages = 2
+#     showFirstLast = false
+
+
+DefaultContentLanguage = "en"
+# defaultContentLanguageInSubdir = true
+ 
+# [languages]
+# [languages.en]
+#   languageName = "English"
+# [languages.es]
+#   languageName = "Español"
+#   title = "Team-Satteltester"
+# [languages.fr]
+#  languageName = "Français"
+#  title = "Team-Satteltester"
+# [languages.de]
+#  languageName = "Deutch"
+#  title = "Team-Satteltester"
+

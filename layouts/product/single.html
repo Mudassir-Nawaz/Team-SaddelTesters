@@ -1,0 +1,557 @@
+{{ partial "htmlhead" . }}
+	<body lang='{{ .Site.Language.Lang | default "en-us" }}' class="is-preload">
+
+		{{- $postsFoldername := .Site.Params.Posts.foldername | default "post" }}
+		{{- $postsPageSize := .Site.Params.Posts.pagesize | default 6 }}
+
+		{{- .Scratch.Set "postsFeaturedPostEnabled" true }}
+		{{- if (or (eq .Site.Params.Posts.featuredpost "false") (eq .Site.Params.Posts.featuredpost false)) }}
+			{{- .Scratch.Set "postsFeaturedPostEnabled" false }}
+		{{- end }}
+		{{- $postsFeaturedPostEnabled := .Scratch.Get "postsFeaturedPostEnabled" }}
+
+		{{- $posts := where .Data.Pages "Type" $postsFoldername }}
+
+		{{- if .IsHome }}
+		{{- $posts = where .Site.RegularPages "Type" $postsFoldername }}
+		{{- end }}
+
+		{{- $firstPost := first 1 $posts }}
+
+		{{- if and (eq $postsFeaturedPostEnabled true) (gt (len $posts) 1) -}}
+			{{- .Scratch.Set "postsForPaging" (after 1 $posts) }}
+		{{- else }}
+			{{- .Scratch.Set "postsForPaging" $posts }}
+		{{- end -}}
+		{{- $postsForPaging := .Scratch.Get "postsForPaging" -}}
+
+		{{- $postsPaging := .Paginate $postsForPaging $postsPageSize -}}
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in" data-pfn="{{ $postsFoldername }}" data-ps="{{ $postsPageSize }}" data-pfp="{{ $postsFeaturedPostEnabled }}">
+
+
+				{{- partial "header" . -}}
+				{{- partial "nav" . }}
+
+				<!-- Main -->
+					<div id="main" class="tw-font-poppins">
+              					{{ partial "bottom-header"  }}
+
+                        <!-- <h1>{{ .Page.Title }}</h1> -->
+                        <p class="tw-text-3xl md:tw-text-4xl">{{ .Params.heading }}</p>
+                        <iframe class="tw-h-auto md:tw-h-[700px]" style="width: 100%;" src="https://www.youtube.com/embed/YMm4Z73OJcA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        <div>
+                            <p class="tw-text-xl tw-font-semibold">{{ .Params.topLine }}</p>
+                            <div class="tw-px-6 tw-py-20 tw-mx-auto ">
+
+                              <section class="">
+                                <style>
+                                  @media (min-width: 992px) {
+                                    #cta-img-nml-50 {
+                                      margin-left: 50px;
+                                    }
+                                  }
+                                </style>
+                            
+                                <div class="tw-flex tw-flex-wrap">
+                                  <div  class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-5/12  lg:tw-mb-0">
+                                    <div  class="tw-flex lg:tw-py-12">
+                                      <img src="/images/funktio011-1.webp" class="tw-w-full tw-rounded-lg tw-shadow-lg"
+                                        id="cta-img-nml-50" style="z-index: 10" alt="" />
+                                    </div>
+                                  </div>
+                            
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-7/12">
+                                    <div
+                                      class="tw-bg-gray-200 tw-h-full tw-rounded-lg tw-p-6 lg:tw-pl-12 tw-text-black tw-flex tw-items-center tw-text-center lg:tw-text-left">
+                                      <div class="lg:tw-pl-12">
+                                        <p class="tw-mb-6 tw-pb-2 lg:tw-pb-0">
+                                          {{ .Params.first.para1 }}<br>
+                                  <br> {{ .Params.first.para2 }}<br>
+                                    <br>
+                                    {{ .Params.first.para3 }}
+                                     <br>
+                                    <br>
+                                    {{ .Params.first.para4 }}
+                                    <br>
+                                    <br>
+                                    {{ .Params.first.para5 }}
+                                     <br>
+                                    <br>
+                                    {{ .Params.first.para6 }}
+                                    <br>
+                                    <br>
+                                    {{ .Params.first.para7 }}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            
+                            </div>
+                            <div class="tw-px-6 tw-py-20 tw-mx-auto ">
+
+                              <section class="">
+                                <style>
+                                  @media (min-width: 992px) {
+                                    #margin-left {
+                                      margin-left: -50px;
+                                    }
+                                  }
+                                </style>
+                            
+                                <div class="tw-flex tw-flex-row-reverse tw-flex-wrap">
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-5/12  lg:tw-mb-0">
+                                    <div class="tw-flex lg:tw-py-12">
+                                      <img src="/images/funktio012.webp" class="tw-w-full tw-rounded-lg tw-shadow-lg"
+                                        id="margin-left" style="z-index: 10; " alt="" />
+                                    </div>
+                                  </div>
+                            
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-7/12">
+                                    <div
+                                      class="tw-bg-gray-200 tw-h-full tw-rounded-lg tw-p-6 lg:tw-pr-12 tw-text-black tw-flex tw-items-center tw-text-center lg:tw-text-left">
+                                      <div class="lg:tw-pr-12">
+                                        <p class="tw-mb-6 tw-pb-2 lg:tw-pb-0">
+                                          {{ .Params.second.para1 }}<br>
+                                  <br>
+                                  {{ .Params.second.para2 }}
+                                  <br>
+                                  <br>
+                                  {{ .Params.second.para3 }}
+                                  <br>
+                                  <br>
+                                  {{ .Params.second.para4 }}
+                                  <br>
+                                  <br>
+                                  {{ .Params.second.para5 }}
+                                  
+                                  <br>
+                                  {{ .Params.second.para6 }}
+                                  <br>
+                                  <br>
+                                  {{ .Params.second.para7 }}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            
+                            </div>
+
+
+                            <div class="tw-px-6 tw-py-20 tw-mx-auto ">
+
+                              <section class="">
+                                <style>
+                                  @media (min-width: 992px) {
+                                    #cta-img-nml-50 {
+                                      margin-left: 50px;
+                                    }
+                                  }
+                                </style>
+                            
+                                <div class="tw-flex tw-flex-wrap">
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-5/12  lg:tw-mb-0">
+                                    <div class="tw-flex lg:tw-py-12">
+                                      <img src="/images/funktio013.webp" class="tw-w-full tw-rounded-lg tw-shadow-lg"
+                                        id="cta-img-nml-50" style="z-index: 10" alt="" />
+                                    </div>
+                                  </div>
+                            
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-7/12">
+                                    <div
+                                      class="tw-bg-gray-200 tw-h-full tw-rounded-lg tw-p-6 lg:tw-pl-12 tw-text-black tw-flex tw-items-center tw-text-center lg:tw-text-left">
+                                      <div class="lg:tw-pl-12">
+                                        <p class="tw-mb-6 tw-pb-2 lg:tw-pb-0">
+                                          
+                                  {{ .Params.third.para1 }}
+                                  <br>
+                                  <br>
+                                  {{ .Params.third.para2 }}
+                                  <br>
+                                  <br>
+                                  {{ .Params.third.para3 }}
+                                  <br>
+                                  {{ .Params.third.para4 }}
+                                  <br>
+                                  <br>
+
+                                  {{ .Params.third.para5 }}
+                                  <br>
+
+                                  {{ .Params.third.para6 }}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            
+                            </div>
+
+                            <div class="tw-px-6 tw-py-20 tw-mx-auto ">
+
+                              <section class="">
+                                <style>
+                                  @media (min-width: 992px) {
+                                    #margin-left {
+                                      margin-left: -50px;
+                                    }
+                                  }
+                                </style>
+                            
+                                <div class="tw-flex tw-flex-row-reverse tw-flex-wrap">
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-5/12  lg:tw-mb-0">
+                                    <div class="tw-flex lg:tw-py-12">
+                                      <img src="/images/funktio014.webp" class="tw-w-full tw-rounded-lg tw-shadow-lg"
+                                        id="margin-left" style="z-index: 10; " alt="" />
+                                    </div>
+                                  </div>
+                            
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-7/12">
+                                    <div
+                                      class="tw-bg-gray-200 tw-h-full tw-rounded-lg tw-p-6 lg:tw-pr-12 tw-text-black tw-flex tw-items-center tw-text-center lg:tw-text-left">
+                                      <div class="lg:tw-pr-12">
+                                        <p class="tw-mb-6 tw-pb-2 lg:tw-pb-0">
+                                          
+                                  {{ .Params.fourth.para1 }}
+                                  <br>
+                                 <br>
+                                 {{ .Params.fourth.para2 }}
+                                 <br>
+                                 <br>
+                                 {{ .Params.fourth.para3 }}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            </div>
+
+                            <div class="tw-px-6 tw-py-20 tw-mx-auto ">
+
+                              <section class="">
+                                <style>
+                                  @media (min-width: 992px) {
+                                    #cta-img-nml-50 {
+                                      margin-left: 50px;
+                                    }
+                                  }
+                                </style>
+                            
+                                <div class="tw-flex tw-flex-wrap">
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-5/12  lg:tw-mb-0">
+                                    <div class="tw-flex lg:tw-py-12">
+                                      <img src="/images/funktio015.jpg" class="tw-w-full tw-rounded-lg tw-shadow-lg"
+                                        id="cta-img-nml-50" style="z-index: 10" alt="" />
+                                    </div>
+                                  </div>
+                            
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-7/12">
+                                    <div
+                                      class="tw-bg-gray-200 tw-h-full tw-rounded-lg tw-p-6 lg:tw-pl-12 tw-text-black tw-flex tw-items-center tw-text-center lg:tw-text-left">
+                                      <div class="lg:tw-pl-12">
+                                        <p class="tw-mb-6 tw-pb-2 lg:tw-pb-0">
+                                  {{ .Params.fifth.para1 }}
+                                  <br>
+                                 {{ .Params.fifth.para2 }}
+                                 <br>
+                                 <br>
+                                 {{ .Params.fifth.para3 }}
+
+                                 <br>
+                                 <br>
+                                 {{ .Params.fifth.para4 }}
+                                 <br>
+                                 {{ .Params.fifth.para5 }}
+                                 <br>
+                                 <br>
+                                 {{ .Params.fifth.para6 }}
+                                 <br>
+                                 {{ .Params.fifth.para7 }}
+                                 <br>
+                                 <br>
+                                 {{ .Params.fifth.para8 }}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            
+                            </div>
+
+                            <div class="tw-px-6 tw-py-20 tw-mx-auto ">
+
+                              <section class="">
+                                <style>
+                                  @media (min-width: 992px) {
+                                    #margin-left {
+                                      margin-left: -50px;
+                                    }
+                                  }
+                                </style>
+                            
+                                <div class="tw-flex tw-flex-row-reverse tw-flex-wrap">
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-5/12  lg:tw-mb-0">
+                                    <div class="tw-flex lg:tw-py-12">
+                                      <img src="/images/funktio016.webp" class="tw-w-full tw-rounded-lg tw-shadow-lg"
+                                        id="margin-left" style="z-index: 10; " alt="" />
+                                    </div>
+                                  </div>
+                            
+                                  <div class="tw-grow-0 tw-shrink-0 tw-basis-auto tw-w-full lg:tw-w-7/12">
+                                    <div
+                                      class="tw-bg-gray-200 tw-h-full tw-rounded-lg tw-p-6 lg:tw-pr-12 tw-text-black tw-flex tw-items-center tw-text-center lg:tw-text-left">
+                                      <div class="lg:tw-pr-12">
+                                        <p class="tw-mb-6 tw-pb-2 lg:tw-pb-0">
+                                          {{ .Params.sixth.para1 }}
+                                          <br>
+                                         <br>
+                                         {{ .Params.sixth.para2 }}
+                                         <br>
+                                         <br>
+                                         {{ .Params.sixth.para3 }}
+                                         <br>
+                                         {{ .Params.sixth.para4 }}
+                                         <br>
+                                         <br>
+                                         {{ .Params.sixth.para5 }}
+                                         <br>                                                 
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            </div>
+                        </div>
+                        <div class="tw-grid lg:tw-grid-cols-6 md:tw-grid-cols-4 tw-grid-cols-2 tw-gap-4">
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/1.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/2.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/3.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/4.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/5.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/6.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/7.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/8.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/9.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/10.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/11.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/12.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/13.png" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/14.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/15.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                            <div class="tw-relative tw-overflow-hidden tw-bg-no-repeat tw-bg-cover tw-object-cover">
+                                <img src="/images/grid/16.jpg" class="tw-w-full tw-rounded-t-sm tw-bg-cover" />
+                                <a href="#!">
+                                  <div
+                                    class="tw-absolute tw-top-0 tw-right-0 tw-bottom-0 tw-left-0 tw-w-full tw-h-full tw-overflow-hidden tw-bg-fixed tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300 tw-ease-in-out"
+                                    style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                                </a>
+                                <svg class="tw-absolute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="left: 0; bottom: 0">
+                                  <path fill="#fff"
+                                    d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                                  </path>
+                                </svg>
+                            </div>
+                        </div>
+                        {{- partial "custom-footer" . }}
+                        {{- partial "copyright" . }}
+					</div>
+                    
+
+					<a href="#navPanel" id="navPanelToggle">{{ i18n "NAV_MENU" . }}</a>
+			</div>
+
+			{{- template "_internal/google_analytics.html" . }}
+			{{- partial "scripts/index" . }}
+
+	</body>
+</html>
