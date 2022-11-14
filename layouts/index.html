@@ -1,6 +1,17 @@
 {{ partial "htmlhead" . }}
 	<body lang='{{ .Site.Language.Lang | default "en-us" }}' class="is-preload ">
 
+		<style>
+			a.links {
+			  color: #cf2e2e !important;
+			  /* display: block; */
+			}
+			a.links:hover {
+			  color: black !important;
+			  text-decoration: none;
+			}
+		  </style>
+	  
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in" data-pfn="" data-ps="" data-pfp="">
@@ -16,7 +27,7 @@
 					<div>
 						<h1 class="tw-text-2xl tw-text-center tw-font-light tw-mb-8" style="font-weight: 100 !important;">{{ .Params.topHeading }}</h1>
 						<video src="/videos/top.mp4" autoplay controls loop class="tw-mx-auto"></video>
-						<p class="tw-text-center">2022 measurement for<a style="color: black !important;" href="https://www.cavallo.de/"> Cavallo</a> : tests of felt saddles. Reviewer:<a href="https://equicheck.de/" style="color: black !important;"> Dana Ekin</a> , rider <a href="https://web.facebook.com/anja.hass?_rdc=1&_rdr" style="color: black !important;"> Anja Hass</a></p>
+						<p class="tw-text-center">2022 measurement for<a class="links" href="https://www.cavallo.de/"> Cavallo</a> : tests of felt saddles. Reviewer:<a class="links" href="https://equicheck.de/"> Dana Ekin</a> , rider <a class="links" href="https://web.facebook.com/anja.hass?_rdc=1&_rdr"> Anja Hass</a></p>
 
 						<div class="tw-mt-16">
 							<p class="tw-text-3xl">{{ .Params.firstTopic }}</p>
@@ -154,7 +165,7 @@
 								</div>
 								<div class="tw-flex tw-flex-col tw-justify-between">
 									<!-- <p class="tw-font-semibold tw-text-xl">Acquisition of a measurement system</p> -->
-									<p>Interested? Not quite sure? For more information see <a href="/product/">“The Product”</a>. Still unsure? Report! <b>We will continue to help!</b></p>
+									<p>Interested? Not quite sure? For more information see <a class="links" href="/product/" target="_blank">“The Product”</a>. Still unsure? Report! <b>We will continue to help!</b></p>
 									<a href="mailto:info@team-satteltester.de?subject=Ich%20bin%20interessiert&body=english%20text%20follows%3A%20%0A%0AHallo%20liebes%20Satteltester-Team%2C%0A%0AIch%20bin%20mir%20noch%20nicht%20ganz%20sicher.%20Bitte%20nehmt%20Kontakt%20mit%20mir%20auf.%0Amail%3A%0Amobil%3A%0A%0ASollte%20ich%20innerhalb%20von%20zwei%20Tagen%20nichts%20von%20euch%20geh%C3%B6rt%20haben%2C%20bin%20ich%20wohl%20leider%20im%20Spam%20gelandet.%20Dann%20rufe%20ich%20euch%20an%20oder%20nehme%20ganz%20einfach%20via%20Facebook%20mit%20euch%20Kontakt%20auf.%0A%0ANat%C3%BCrlich%20habe%20ich%20euch%20nur%20pers%C3%B6nliche%20Daten%20angegeben%2C%20die%20ich%20euch%20auch%20zukommen%20lassen%20wollte.%20Den%20Rest%20habe%20ich%20nicht%20ausgef%C3%BCllt.%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A--------englisch%20version------%0A%0ADear%20saddle%20tester%20team%2C%0A%0AI'm%20not%20quite%20sure%20yet.%20Please%20contact%20me.%0Amail%3A%0Amobile%3A%0A%0AIf%20I%20haven't%20heard%20from%20you%20within%20two%20days%2C%20I%20must%20have%20ended%20up%20in%20spam.%20Then%20I'll%20call%20you%20or%20simply%20get%20in%20touch%20with%20you%20via%20Facebook.%0A%0AOf%20course%2C%20I%20only%20gave%20you%20personal%20data%20that%20I%20wanted%20to%20send%20you.%20I%20didn't%20fill%20in%20the%20rest.%0A%0AMany%20greetings"><button type="button" class="tw-px-6 tw-py-3"><i class="fa-solid fa-money-bill"></i> Offer/Purchase</button></a>
 								</div>
 							</div>

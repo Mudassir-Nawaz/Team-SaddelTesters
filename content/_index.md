@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Home"
 url: "/"
 heading: "Team-Satteltester"
 topHeading: "Saddle pressure measurement on the horse in full movement!"
@@ -38,5 +38,5 @@ thirdPara:
 
 ---
 
-With <a href="https://eberhard-weiss-reitlehrer.de/" target="_blank">Mr. Eberhard Weiß</a> and <a href="https://www.pferdepraxis.co.at/" target="_blank">Dr. Stodulka</a> from the <a href="https://www.vetmeduni.ac.at/" target="_blank">University of Vienna</a> , an anatomy edition MSL (medical saddle gauge) was developed and is offered by us in a modified form. Advantage: the print images are adapted to an anatomical 3D model. You can see the pressure on the associated muscle parts and can evaluate and take measures under medical anatomical aspects! <br>
+With <a class="links" href="https://eberhard-weiss-reitlehrer.de/" target="_blank">Mr. Eberhard Weiß</a> and <a class="links" href="https://www.pferdepraxis.co.at/" target="_blank">Dr. Stodulka</a> from the <a class="links" href="https://www.vetmeduni.ac.at/" target="_blank">University of Vienna</a> , an anatomy edition MSL (medical saddle gauge) was developed and is offered by us in a modified form. Advantage: the print images are adapted to an anatomical 3D model. You can see the pressure on the associated muscle parts and can evaluate and take measures under medical anatomical aspects! <br>
 **Conclusion: The perfect tool for every veterinarian, saddler, physiotherapist, osteopath to form the cause-effect circles, to design healing concepts and to treat them.**

@@ -38,13 +38,13 @@
         {{ with $data.contactinfo.phone }}
         <section>
             <h3>{{ i18n "CONTACT_PHONE" . }}</h3>
-            <p class="tw-text-center"><a href="tel:{{ . }}">{{ . }}</a></p>
+            <p class="tw-text-center"><a class="links" href="tel:{{ . }}">{{ . }}</a></p>
         </section>
         {{ end }}
         {{ with $data.contactinfo.email }}
         <section>
             <h3>{{ i18n "CONTACT_EMAIL" . }}</h3>
-            <p class="tw-text-center"><a href="mailto:{{ . }}">{{ . }}</a></p>
+            <p class="tw-text-center"><a class="links" href="mailto:{{ . }}">{{ . }}</a></p>
         </section>
         {{ end }}
         {{ with $data.social }}
@@ -52,31 +52,31 @@
             <h3>{{ i18n "CONTACT_SOCIAL" . }}</h3>
             <ul class="icons alt">
                 {{ with .twitter}}
-                <li><a href="{{ . }}" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-twitter"><span class="label">Twitter</span></a></li>
                 {{ end }}
                 {{ with .facebook}}
-                <li><a href="{{ . }}" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-facebook"><span class="label">Facebook</span></a></li>
                 {{ end }}
                 {{ with .instagram}}
-                <li><a href="{{ . }}" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-instagram"><span class="label">Instagram</span></a></li>
                 {{ end }}
                 {{ with .linkedin}}
-                <li><a href="{{ . }}" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
                 {{ end }}
                 {{ with .github}}
-                <li><a href="{{ . }}" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-github"><span class="label">GitHub</span></a></li>
                 {{ end }}
                 {{ with .youtube}}
-                <li><a href="{{ . }}" class="icon alt fa-youtube"><span class="label">Youtube</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-youtube"><span class="label">Youtube</span></a></li>
                 {{ end }}
                 {{ with .googleplus}}
-                <li><a href="{{ . }}" class="icon alt fa-google-plus"><span class="label">Google Plus</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-google-plus"><span class="label">Google Plus</span></a></li>
                 {{ end }}
                 {{ with .lastfm}}
-                <li><a href="{{ . }}" class="icon alt fa-lastfm"><span class="label">Last.fm</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-lastfm"><span class="label">Last.fm</span></a></li>
                 {{ end }}
                 {{ with .flickr}}
-                <li><a href="{{ . }}" class="icon alt fa-flickr"><span class="label">Flickr</span></a></li>
+                <li><a style="color: #cf2e2e;" href="{{ . }}" class="hover:tw-text-black icon alt fa-flickr"><span class="label">Flickr</span></a></li>
                 {{ end }}
             </ul>
         </section>

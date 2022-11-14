@@ -1,6 +1,21 @@
+<style>
+  .youtube-carousel {
+    overflow: hidden !important;
+    height: 300px ; 
+    width: 100%;
+  }
+  @media (min-width:1680px) {
+    .youtube-carousel{
+      /* min-height: 400px; */
+      height: 500px;
+    }
+  }
+  
+</style>
+
 <footer class="md:tw-px-20 tw-px-6 tw-py-8 md:tw-py-14" style="background-color: #F5F5F5 !important;">
     <div class="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-justify-center tw-items-center lg:tw-justify-start lg:tw-items-start tw-text-center lg:tw-text-left tw-gap-6">
-        <div style="overflow: hidden !important; height: 300px !important; width: 100%;" id="carousel1" class="carousel slide" data-ride="carousel" data-interval="2500" data-pause="hover">
+        <div id="carousel1" class="carousel slide youtube-carousel" data-ride="carousel" data-interval="2500" data-pause="hover">
           <p class="tw-underline tw-text-3xl tw-mb-4 tw-text-center lg:tw-text-left tw-font-semibold">Youtube content</p>
             <ol class="carousel-indicators">
               <li data-target="#carousel1" data-slide-to="0" class="active"></li>
@@ -36,8 +51,8 @@
         <div class="tw-flex tw-flex-col lg:tw-justify-start tw-items-start">
             <h1 class="tw-underline tw-text-3xl tw-mb-4 tw-text-center lg:tw-text-left">Legal</h1>
             <div class="tw-text-center lg:tw-text-left">
-                <a href="/imprint/" class="tw-block">Imprint</a>
-                <a href="/data-protection/" class="tw-block">Data Protection</a>
+                <a style="display: block;" class="links" href="/imprint/" class="tw-block">Imprint</a>
+                <a style="display: block;" class="links" href="/data-protection/" class="tw-block">Data Protection</a>
             </div>
         </div>
     </div>

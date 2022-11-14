@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './layouts/*.html',
     './layouts/partials/*.html',
+    './layouts/partials/footer/*.html',
     './layouts/_default/*.html',
     './layouts/product/*.html'
   ],

@@ -1,6 +1,6 @@
 ---
 title: "Product"
-date: 2022-11-11T18:33:14+05:00
+# date: 2022-11-11T18:33:14+05:00
 type: 'product'
 url: '/product/'
 heading: 'Handling'
@@ -53,4 +53,23 @@ sixth:
     para3: "Verbal descriptions of 'do this to bring about this' are replaced with images."
     para4: "The riding instructor can demonstrate the pressure distribution and the riding student can tell the horse where to go by imitating the pressure image." 
     para5: "The system is therefore an excellent means to learn to ride quickly and effectively, but also to make progress faster and more effectively in order to be even more successful at tournaments through better cooperation with your horse - through improved communication."
+
+
+text:
+    pic1: "text for image1"
+    pic2: "text for image2"
+    pic3: "text for image3"
+    pic4: "text for image4"
+    pic5: "text for image5"
+    pic6: "text for image6"
+    pic7: "text for image7"
+    pic8: "text for image8"
+    pic9: "text for image9"
+    pic10: "text for image10"
+    pic11: "text for image11"
+    pic12: "text for image12"
+    pic13: "text for image13"
+    pic14: "text for image14"
+    pic15: "text for image15"
+    pic16: "text for image16"
 ---
