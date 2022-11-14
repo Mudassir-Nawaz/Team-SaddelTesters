@@ -1,6 +1,16 @@
 <!-- Nav -->
 {{ $data := index .Site.Data .Site.Language.Lang }}
 {{ $currentPage := .Page }}
+
+<style>
+    @media (max-width:980px) {
+        .block{
+            display: block !important;
+            margin: 8px auto;
+        }
+    }
+</style>
+
 <div class="tw-container tw-mx-auto tw-h-16">
 </div>
 <nav id="nav" class="">
@@ -19,6 +29,10 @@
     </ul>
     {{ with $data.social }}
     <ul class="icons">
+        <li><a href="https://team--satteltester-netlify-app.translate.goog/?_x_tr_sl=en&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=wapp" class="icon" target="_blank">Google Translation</a></li>
+        {{ with .German }}
+        <li class="block" ><a href="{{ . }}" target="_blank"><img class="icon" style="width: 25px; margin-right: 5px;" src="/images/flag.svg" alt=""></a></li>
+        {{ end }}
         {{ with .facebook }}
         <li><a href="{{ . }}" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
         {{ end }}
