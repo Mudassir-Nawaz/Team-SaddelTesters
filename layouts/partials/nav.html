@@ -37,8 +37,11 @@
         <li><a href="{{ . }}" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
         {{ end }}
         <!-- This is email -->
-        {{ with .instagram }}
+        {{ with .email }}
         <li><a href="mailto:{{ . }}" class="icon fab fa-solid far fa-envelope"><span class="label">Email</span></a></li>
+        {{ end }}
+        {{ with .instagram }}
+        <li><a href="mailto:{{ . }}" class="icon fab fa-solid far fab fa-instagram"><span class="label">instagram</span></a></li>
         {{ end }}
         {{ with .youtube }}
         <li><a href="{{ . }}" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
